@@ -4,5 +4,5 @@ from api import views
 
 urlpatterns = [
     path('template/', views.index),
-    path('hello/', views.say_hello),
+    path('name/', views.say_hello),
 ]

@@ -4,23 +4,18 @@ from json import dumps
 import reactivex.operators as rx_op
 
 from django.http import HttpRequest, HttpResponse
-from django.template.loader import render_to_string
-from utils.observables import connect_to_observable, from_async
+from django.template.loader import get_template
+from django.shortcuts import render
 
 # Create your views here.
 
 
 async def index(request: HttpRequest) -> HttpResponse:
-    return HttpResponse(render_to_string("hello.html", {"name": "Cruz"}))
+    return render(request, "home.html")
 
 
 async def say_hello(request: HttpRequest) -> HttpResponse:
-    response = await connect_to_observable(
-        from_async(createMessage, asyncio.get_event_loop()).pipe(
-            rx_op.map(addMundo),
-            rx_op.map(createHttpResponse),
-        ))
-    return response
+    return render(request, "components/name.html", {"name": "Cruz"})
 
 
 async def createMessage() -> str:

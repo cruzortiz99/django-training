@@ -1,0 +1,4 @@
+{% extends "index.html" %}
+{% block content %}
+<div hx-get="/api/name" hx-swap="outerHTML" hx-trigger="load"></div>
+{% endblock %}
