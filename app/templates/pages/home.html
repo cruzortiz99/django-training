@@ -1,0 +1,46 @@
+{% extends "index.html" %} {% block content %}
+<ul>
+  <li>
+    <a
+      hx-get="api/home/"
+      hx-trigger="click"
+      hx-target="#content"
+      hx-push-url="/"
+      hx-indicator="#loader"
+      >Home</a
+    >
+  </li>
+  <li>
+    <a
+      hx-get="api/page-1/"
+      hx-trigger="click,load[{{ loadPage1 }}]"
+      hx-target="#content"
+      hx-push-url="page-1"
+      hx-indicator="#loader"
+      >Page 1</a
+    >
+  </li>
+  <li>
+    <a
+      hx-get="api/page-2/"
+      hx-trigger="click,load[{{ loadPage2 }}]"
+      hx-target="#content"
+      hx-push-url="page-2"
+      hx-indicator="#loader"
+      >Page 2</a
+    >
+  </li>
+  <li>
+    <a
+      hx-get="api/page-3/"
+      hx-push-url="page-3"
+      hx-trigger="click,load[{{ loadPage3 }}]"
+      hx-target="#content"
+      hx-indicator="#loader"
+      >Page-3</a
+    >
+  </li>
+</ul>
+<div id="content"></div>
+<div id="loader" class="htmx-indicator">Loading...</div>
+{% endblock %}
