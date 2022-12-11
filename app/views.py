@@ -3,40 +3,52 @@ from json import dumps
 
 from django.template.loader import render_to_string
 from django.http import HttpRequest, HttpResponse
+from django.views import View
 
 # Create your views here.
 
 
-async def index(request: HttpRequest) -> HttpResponse:
-    route = request.get_full_path()
-    return HttpResponse(render_to_string(
-        "pages/home.html",
-        {
-            "loadPage1": "true" if "page-1" in route else "false",
-            "loadPage2": "true" if "page-2" in route else "false",
-            "loadPage3": "true" if "page-3" in route else "false"
-        }))
+class IndexView(View):
+    async def get(self, request: HttpRequest) -> HttpResponse:
+        route = request.get_full_path()
+        return HttpResponse(render_to_string(
+            "pages/home.html",
+            {
+                "loadPage1": "true" if "page-1" in route else "false",
+                "loadPage2": "true" if "page-2" in route else "false",
+                "loadPage3": "true" if "page-3" in route else "false"
+            }))
 
 
-async def page_home(request: HttpRequest) -> HttpResponse:
-    return HttpResponse("")
+class PageHomeView(View):
+    async def get(self, request: HttpRequest) -> HttpResponse:
+        return HttpResponse("")
 
 
-async def page_one(request: HttpRequest) -> HttpResponse:
-    return HttpResponse(render_to_string(
-        "components/name.html",
-        {"name": "Beatriz"}
-    ))
+class PageOneView(View):
+    template_name = "components/name.html"
+
+    async def get(self, request: HttpRequest) -> HttpResponse:
+        return HttpResponse(render_to_string(
+            self.template_name,
+            {"name": "Beatriz"}
+        ))
 
 
-async def page_two(request: HttpRequest) -> HttpResponse:
-    return HttpResponse(render_to_string(
-        "components/name.html",
-        {"name": "Mundo"})
-    )
+class PageTwoView(View):
+    template_name = "components/name.html"
+
+    async def get(self, request: HttpRequest) -> HttpResponse:
+        return HttpResponse(render_to_string(
+            self.template_name,
+            {"name": "Mundo"})
+        )
 
 
-async def page_three(request: HttpRequest) -> HttpResponse:
-    return HttpResponse(render_to_string(
-        "components/name.html",
-        {"name": "Cruz"}))
+class PageThree(View):
+    template_name = "components/name.html"
+
+    async def get(self, request: HttpRequest) -> HttpResponse:
+        return HttpResponse(render_to_string(
+            self.template_name,
+            {"name": "Cruz"}))
