@@ -1,6 +1,7 @@
 from django.http import HttpRequest, HttpResponse
 from django.template.loader import render_to_string
 from django.views import View
+from typing import Final
 
 # Create your views here.
 
@@ -23,7 +24,7 @@ class PageHomeView(View):
 
 
 class PageOneView(View):
-    template_name = "components/name.html"
+    template_name: Final = "components/name.html"
 
     async def get(self, request: HttpRequest) -> HttpResponse:
         return HttpResponse(render_to_string(
@@ -33,7 +34,7 @@ class PageOneView(View):
 
 
 class PageTwoView(View):
-    template_name = "components/name.html"
+    template_name: Final = "components/name.html"
 
     async def get(self, request: HttpRequest) -> HttpResponse:
         return HttpResponse(render_to_string(
@@ -43,7 +44,7 @@ class PageTwoView(View):
 
 
 class PageThree(View):
-    template_name = "components/name.html"
+    template_name: Final = "components/name.html"
 
     async def get(self, request: HttpRequest) -> HttpResponse:
         return HttpResponse(render_to_string(
