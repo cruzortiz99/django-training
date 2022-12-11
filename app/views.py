@@ -1,8 +1,5 @@
-import asyncio
-from json import dumps
-
-from django.template.loader import render_to_string
 from django.http import HttpRequest, HttpResponse
+from django.template.loader import render_to_string
 from django.views import View
 
 # Create your views here.
