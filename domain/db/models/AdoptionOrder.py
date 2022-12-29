@@ -9,6 +9,7 @@ class AdoptionOrderStatus(enum.Enum):
     SUCCESS = "success"
     PENDING = "pending"
     REJECTED = "rejected"
+    REVERTED = "reverted"
 
 
 class AdoptionOrder(models.Model):
@@ -21,7 +22,20 @@ class AdoptionOrder(models.Model):
     pet = models.ForeignKey(to=Pet, null=False,
                             on_delete=models.deletion.CASCADE)
     current_status = models.CharField(max_length=50, choices=[
-        (AdoptionOrderStatus.SUCCESS.value, AdoptionOrderStatus.SUCCESS.name),
-        (AdoptionOrderStatus.PENDING.value, AdoptionOrderStatus.PENDING.name),
-        (AdoptionOrderStatus.REJECTED.value, AdoptionOrderStatus.REJECTED.name)
+        (
+            AdoptionOrderStatus.SUCCESS.value,
+            AdoptionOrderStatus.SUCCESS.name
+        ),
+        (
+            AdoptionOrderStatus.PENDING.value,
+            AdoptionOrderStatus.PENDING.name
+        ),
+        (
+            AdoptionOrderStatus.REJECTED.value,
+            AdoptionOrderStatus.REJECTED.name
+        ),
+        (
+            AdoptionOrderStatus.REVERTED.value,
+            AdoptionOrderStatus.REVERTED.name
+        )
     ], default=AdoptionOrderStatus.PENDING.value)
