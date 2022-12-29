@@ -12,6 +12,8 @@ class AdoptionOrderStatus(enum.Enum):
 
 
 class AdoptionOrder(models.Model):
+    class Meta:
+        db_table = "\"adoption_order\""
     adoption_center = models.ForeignKey(to=AdoptionCenter, null=False,
                                         on_delete=models.deletion.CASCADE)
     adopter = models.ForeignKey(to=User, null=False,

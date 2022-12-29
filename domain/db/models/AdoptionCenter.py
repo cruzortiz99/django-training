@@ -2,6 +2,9 @@ from django.db import models
 
 
 class AdoptionCenter(models.Model):
+    class Meta:
+        db_table = "\"adoption_center\""
+
     name = models.CharField(unique=True, max_length=200,
                             blank=False, null=False)
     email = models.EmailField(unique=True, max_length=200,

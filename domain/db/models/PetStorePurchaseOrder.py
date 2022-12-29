@@ -4,6 +4,8 @@ from domain.db.models.User import User
 
 
 class PetStorePurchaseOrder(models.Model):
+    class Meta:
+        db_table = "\"pet_store_purchase_order\""
     pet_store = models.ForeignKey(to=PetStore, null=False,
                                   on_delete=models.deletion.CASCADE)
     buyer = models.ForeignKey(to=User, null=False,

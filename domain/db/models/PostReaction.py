@@ -13,6 +13,8 @@ class Reaction(enum.Enum):
 
 
 class PostReaction(models.Model):
+    class Meta:
+        db_table = "\"post_reaction\""
     post = models.ForeignKey(to=Post, on_delete=models.deletion.CASCADE,
                              null=False)
     reacted_by = models.ForeignKey(to=User, on_delete=models.deletion.CASCADE,
