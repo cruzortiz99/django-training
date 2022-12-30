@@ -2,6 +2,7 @@ from django.db import models
 from domain.db.models.Post import Post
 from domain.db.models.User import User
 import enum
+from domain.db.models.BaseModel import BaseModel
 
 
 class Reaction(enum.Enum):
@@ -12,7 +13,7 @@ class Reaction(enum.Enum):
     AMAZE = "AMAZE"
 
 
-class PostReaction(models.Model):
+class PostReaction(BaseModel):
     class Meta:
         db_table = "\"post_reaction\""
     post = models.ForeignKey(to=Post, on_delete=models.deletion.CASCADE,

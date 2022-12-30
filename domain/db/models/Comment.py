@@ -3,8 +3,10 @@ from django.db import models
 from domain.db.models.Post import Post
 from domain.db.models.User import User
 
+from domain.db.models.BaseModel import BaseModel
 
-class PostComment(models.Model):
+
+class PostComment(BaseModel):
     class Meta:
         db_table = "\"post_comment\""
     post = models.ForeignKey(to=Post, on_delete=models.deletion.CASCADE,

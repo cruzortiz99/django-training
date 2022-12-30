@@ -1,7 +1,9 @@
 from django.db import models
 
+from domain.db.models.BaseModel import BaseModel
 
-class User(models.Model):
+
+class User(BaseModel):
     class Meta:
         db_table = "user"
 

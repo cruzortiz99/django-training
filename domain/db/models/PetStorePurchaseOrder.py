@@ -2,8 +2,10 @@ from django.db import models
 from domain.db.models.PetStore import PetStore
 from domain.db.models.User import User
 
+from domain.db.models.BaseModel import BaseModel
 
-class PetStorePurchaseOrder(models.Model):
+
+class PetStorePurchaseOrder(BaseModel):
     class Meta:
         db_table = "\"pet_store_purchase_order\""
     pet_store = models.ForeignKey(to=PetStore, null=False,

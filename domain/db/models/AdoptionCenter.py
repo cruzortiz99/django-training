@@ -1,7 +1,8 @@
 from django.db import models
+from domain.db.models.BaseModel import BaseModel
 
 
-class AdoptionCenter(models.Model):
+class AdoptionCenter(BaseModel):
     class Meta:
         db_table = "\"adoption_center\""
 

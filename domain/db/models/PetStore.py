@@ -1,7 +1,9 @@
 from django.db import models
 
+from domain.db.models.BaseModel import BaseModel
 
-class PetStore(models.Model):
+
+class PetStore(BaseModel):
     class Meta:
         db_table = "\"pet_store\""
     name = models.CharField(max_length=200, null=False, blank=False)

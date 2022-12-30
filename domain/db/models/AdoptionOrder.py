@@ -4,6 +4,8 @@ from domain.db.models.AdoptionCenter import AdoptionCenter
 from domain.db.models.User import User
 from domain.db.models.Pet import Pet
 
+from domain.db.models.BaseModel import BaseModel
+
 
 class AdoptionOrderStatus(enum.Enum):
     SUCCESS = "success"
@@ -12,7 +14,7 @@ class AdoptionOrderStatus(enum.Enum):
     REVERTED = "reverted"
 
 
-class AdoptionOrder(models.Model):
+class AdoptionOrder(BaseModel):
     class Meta:
         db_table = "\"adoption_order\""
     adoption_center = models.ForeignKey(to=AdoptionCenter, null=False,
