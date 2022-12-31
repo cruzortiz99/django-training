@@ -1,7 +1,7 @@
 from django.db import models
 import enum
 from domain.db.models.AdoptionCenter import AdoptionCenter
-from domain.db.models.User import User
+from domain.db.models.Account import Account
 from domain.db.models.Pet import Pet
 
 from domain.db.models.BaseModel import BaseModel
@@ -19,7 +19,7 @@ class AdoptionOrder(BaseModel):
         db_table = "\"adoption_order\""
     adoption_center = models.ForeignKey(to=AdoptionCenter, null=False,
                                         on_delete=models.deletion.CASCADE)
-    adopter = models.ForeignKey(to=User, null=False,
+    adopter = models.ForeignKey(to=Account, null=False,
                                 on_delete=models.deletion.CASCADE)
     pet = models.ForeignKey(to=Pet, null=False,
                             on_delete=models.deletion.CASCADE)
@@ -41,3 +41,4 @@ class AdoptionOrder(BaseModel):
             AdoptionOrderStatus.REVERTED.name
         )
     ], default=AdoptionOrderStatus.PENDING.value)
+    comments = models.TextField(max_length=500, blank=True, null=True)

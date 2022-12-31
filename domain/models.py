@@ -8,4 +8,4 @@ from domain.db.models.PetStore import PetStore
 from domain.db.models.PetStorePurchaseOrder import PetStorePurchaseOrder
 from domain.db.models.Post import Post
 from domain.db.models.PostReaction import PostReaction
-from domain.db.models.User import User
+from domain.db.models.Account import Account

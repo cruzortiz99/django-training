@@ -1,6 +1,6 @@
 from django.db import models
 from domain.db.models.Post import Post
-from domain.db.models.User import User
+from domain.db.models.Account import Account
 import enum
 from domain.db.models.BaseModel import BaseModel
 
@@ -18,7 +18,8 @@ class PostReaction(BaseModel):
         db_table = "\"post_reaction\""
     post = models.ForeignKey(to=Post, on_delete=models.deletion.CASCADE,
                              null=False)
-    reacted_by = models.ForeignKey(to=User, on_delete=models.deletion.CASCADE,
+    reacted_by = models.ForeignKey(to=Account,
+                                   on_delete=models.deletion.CASCADE,
                                    null=False)
     reaction = models.CharField(max_length=50, choices=[
         (Reaction.AMAZE.value, Reaction.AMAZE.name),

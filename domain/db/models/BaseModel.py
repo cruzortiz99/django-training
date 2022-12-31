@@ -5,7 +5,7 @@ class BaseModel(models.Model):
     class Meta:
         abstract = True
 
-    created_at = models.fields.DateField(auto_now=True)
+    created_at = models.fields.DateField(auto_now_add=True)
     updated_at = models.fields.DateField(auto_now=True)
     deleted_at = models.fields.DateField(auto_now=False,
                                          auto_created=False,

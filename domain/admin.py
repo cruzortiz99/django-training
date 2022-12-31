@@ -11,5 +11,5 @@ admin.site.register([
     models.PetStorePurchaseOrder,
     models.Post,
     models.PostReaction,
-    models.User
+    models.Account
 ])
