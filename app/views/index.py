@@ -1,12 +1,16 @@
-from django.views import View
 from django.http import HttpRequest, HttpResponse
 from django.shortcuts import render
-from typing import Final
+from app.views.base_view import BaseView
 
 
-class IndexView(View):
-    view_route: Final = "/"
-    template_name: Final = "pages/home.html"
+class IndexView(BaseView):
+    @property
+    def view_route(self) -> str:
+        return "/"
+
+    @property
+    def template_name(self) -> str:
+        return "pages/home.html"
 
     async def get(self, request: HttpRequest) -> HttpResponse:
         route = request.get_full_path()
@@ -16,8 +20,8 @@ class IndexView(View):
             {
                 "login": "true" if "login" in route else "false",
                 "sign_in": "true" if "sign-in" in route else "false",
-                "adoption_center": "true" if "adoption-center" in route
+                "adoption_center": "true" if "adoption-centers" in route
                 else "false",
-                "pet_store": "true" if "pet-store" in route else "false",
-                "user": "true" if "user" in route else "false",
+                "pet_store": "true" if "pet-stores" in route else "false",
+                "user": "true" if "users" in route else "false",
             })

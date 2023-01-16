@@ -1,12 +1,16 @@
-from django.views import View
 from django.http import HttpRequest, HttpResponse
 from django.shortcuts import render
-from typing import Final
+from app.views.base_view import BaseView
 
 
-class PageSignInView(View):
-    view_route: Final = "/sign-in/"
-    template_name: Final = "pages/sign-in.html"
+class PageSignInView(BaseView):
+    @property
+    def view_route(self) -> str:
+        return "/sign-in/"
+
+    @property
+    def template_name(self) -> str:
+        return "pages/sign-in.html"
 
     async def get(self, request: HttpRequest) -> HttpResponse:
         return render(request, self.template_name)

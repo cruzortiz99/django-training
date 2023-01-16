@@ -1,9 +1,14 @@
 from django.views import View
+from abc import abstractmethod
 
 
 class BaseView(View):
+    @property
+    @abstractmethod
     def view_route(self) -> str:
-        raise Exception("Must override method")
+        pass
 
+    @property
+    @abstractmethod
     def template_name(self) -> str:
-        raise Exception("Must override method")
+        pass
