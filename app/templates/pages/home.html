@@ -2,7 +2,7 @@
 <ul>
   <li>
     <a
-      hx-get="api/home/"
+      hx-get="/api/home/"
       hx-trigger="click"
       hx-target="#content"
       hx-push-url="/"
@@ -12,32 +12,52 @@
   </li>
   <li>
     <a
-      hx-get="api/page-1/"
-      hx-trigger="click,load[{{ loadPage1 }}]"
+      hx-get="/api/login/"
+      hx-trigger="click, load[{{ login }}]"
       hx-target="#content"
-      hx-push-url="page-1"
+      hx-push-url="/login/"
       hx-indicator="#loader"
-      >Page 1</a
+      >Login</a
     >
   </li>
   <li>
     <a
-      hx-get="api/page-2/"
-      hx-trigger="click,load[{{ loadPage2 }}]"
+      hx-get="/api/sign-in/"
+      hx-trigger="click, load[{{ sign_in }}]"
       hx-target="#content"
-      hx-push-url="page-2"
+      hx-push-url="/sign-in/"
       hx-indicator="#loader"
-      >Page 2</a
+      >Sign In</a
     >
   </li>
   <li>
     <a
-      hx-get="api/page-3/"
-      hx-push-url="page-3"
-      hx-trigger="click,load[{{ loadPage3 }}]"
+      hx-get="/api/adoption-center/"
+      hx-trigger="click, load[{{ adoption_center }}]"
       hx-target="#content"
+      hx-push-url="/adoption-center/"
       hx-indicator="#loader"
-      >Page-3</a
+      >Adoption Center</a
+    >
+  </li>
+  <li>
+    <a
+      hx-get="/api/pet-store/"
+      hx-trigger="click,load[{{ pet_store }}]"
+      hx-target="#content"
+      hx-push-url="/pet-store/"
+      hx-indicator="#loader"
+      >Pet Store</a
+    >
+  </li>
+  <li>
+    <a
+      hx-get="/api/user/"
+      hx-trigger="click,load[{{ user }}]"
+      hx-target="#content"
+      hx-push-url="/user/"
+      hx-indicator="#loader"
+      >Regular User</a
     >
   </li>
 </ul>

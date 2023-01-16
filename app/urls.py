@@ -3,9 +3,11 @@ from app import views
 
 
 urlpatterns = [
-    re_path("^(?!api|admin)", views.IndexView.as_view()),
+    re_path("^(?!api|admin|favicon)", views.IndexView.as_view()),
     path("api/home/", views.PageHomeView.as_view()),
-    path("api/page-1/", views.PageOneView.as_view()),
-    path("api/page-2/", views.PageTwoView.as_view()),
-    path("api/page-3/", views.PageThree.as_view()),
+    path("api/login/", views.PageLoginView.as_view()),
+    path("api/sign-in/", views.PageSignInView.as_view()),
+    path("api/adoption-center/", views.PageAdoptionCenterView.as_view()),
+    path("api/pet-store/", views.PagePetStoreView.as_view()),
+    path("api/user/", views.PageUser.as_view()),
 ]
