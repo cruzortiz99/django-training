@@ -1,6 +1,5 @@
 from django.http import HttpResponse, HttpRequest
 from django.shortcuts import render
-from typing import Final
 from app.views.base_view import BaseView
 
 
