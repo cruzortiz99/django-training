@@ -4,13 +4,15 @@ from app.views.base_view import BaseView
 
 
 class PageAdoptionCenterView(BaseView):
-    @property
-    def view_route(self) -> str:
+    @staticmethod
+    def view_route() -> str:
         return "/adoption-centers/"
 
-    @property
-    def template_name(self) -> str:
+    @staticmethod
+    def template_name() -> str:
         return "pages/adoption-center.html"
 
     async def get(self, request: HttpRequest) -> HttpResponse:
-        return render(request, self.template_name, {"name": "Cruz"})
+        return render(request,
+                      PageAdoptionCenterView.template_name(),
+                      {"name": "Cruz"})

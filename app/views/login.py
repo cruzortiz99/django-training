@@ -6,16 +6,16 @@ from django.shortcuts import redirect, render
 
 class PageLoginView(BaseView):
 
-    @property
-    def view_route(self) -> str:
+    @staticmethod
+    def view_route() -> str:
         return "/login/"
 
-    @property
-    def template_name(self) -> str:
+    @staticmethod
+    def template_name() -> str:
         return "pages/login.html"
 
     async def get(self, request: HttpRequest) -> HttpResponse:
-        return render(request, self.template_name)
+        return render(request, PageLoginView.template_name())
 
     async def post(self, request: HttpRequest) -> HttpResponse:
-        return redirect(PageUser.view_route)
+        return redirect(PageUser.view_route())

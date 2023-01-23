@@ -4,12 +4,12 @@ from app.views.base_view import BaseView
 
 class PageHomeView(BaseView):
 
-    @property
-    def view_route(self) -> str:
+    @staticmethod
+    def view_route() -> str:
         return "/"
 
-    @property
-    def template_name(self) -> str:
+    @staticmethod
+    def template_name() -> str:
         return ""
 
     async def get(self, request: HttpRequest) -> HttpResponse:

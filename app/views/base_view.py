@@ -3,12 +3,12 @@ from abc import abstractmethod
 
 
 class BaseView(View):
-    @property
+    @staticmethod
     @abstractmethod
-    def view_route(self) -> str:
+    def view_route() -> str:
         pass
 
-    @property
+    @staticmethod
     @abstractmethod
-    def template_name(self) -> str:
+    def template_name() -> str:
         pass

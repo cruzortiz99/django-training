@@ -4,13 +4,13 @@ from app.views.base_view import BaseView
 
 
 class PageUser(BaseView):
-    @property
-    def view_route(self) -> str:
+    @staticmethod
+    def view_route() -> str:
         return "/users/"
 
-    @property
-    def template_name(self) -> str:
+    @staticmethod
+    def template_name() -> str:
         return "pages/user.html"
 
     async def get(self, request: HttpRequest) -> HttpResponse:
-        return render(request, self.template_name, {"name": "Mundo"})
+        return render(request, PageUser.template_name(), {"name": "Mundo"})

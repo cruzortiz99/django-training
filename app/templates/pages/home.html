@@ -1,66 +1,70 @@
 {% extends "index.html" %} {% block content %}
-<ul>
-  <li>
-    <a
-      hx-get="/api/home/"
-      hx-trigger="click"
-      hx-target="#content"
-      hx-push-url="/"
-      hx-indicator="#loader"
-      >Home</a
-    >
-  </li>
-  <li>
-    <a
-      hx-get="/api/login/"
-      hx-trigger="click, load[{{ login }}]"
-      hx-target="#content"
-      hx-push-url="/login/"
-      hx-indicator="#loader"
-      >Login</a
-    >
-  </li>
-  <li>
-    <a
-      hx-get="/api/sign-in/"
-      hx-trigger="click, load[{{ sign_in }}]"
-      hx-target="#content"
-      hx-push-url="/sign-in/"
-      hx-indicator="#loader"
-      >Sign In</a
-    >
-  </li>
-  <li>
-    <a
-      hx-get="/api/adoption-center/"
-      hx-trigger="click, load[{{ adoption_center }}]"
-      hx-target="#content"
-      hx-push-url="/adoption-centers/"
-      hx-indicator="#loader"
-      >Adoption Center</a
-    >
-  </li>
-  <li>
-    <a
-      hx-get="/api/pet-store/"
-      hx-trigger="click,load[{{ pet_store }}]"
-      hx-target="#content"
-      hx-push-url="/pet-stores/"
-      hx-indicator="#loader"
-      >Pet Store</a
-    >
-  </li>
-  <li>
-    <a
-      hx-get="/api/user/"
-      hx-trigger="click,load[{{ user }}]"
-      hx-target="#content"
-      hx-push-url="/users/"
-      hx-indicator="#loader"
-      >Regular User</a
-    >
-  </li>
-</ul>
+<nav class="navbar _navbar is-fixed-top">
+  <div class="breadcrumb is-flex is-align-items-center pl-4">
+    <ul>
+      <li>
+        <a
+          hx-get="/api/home/"
+          hx-trigger="click"
+          hx-target="#content"
+          hx-push-url="/"
+          hx-indicator="#loader"
+          >Home</a
+        >
+      </li>
+      <li>
+        <a
+          hx-get="/api/login/"
+          hx-trigger="click, load[{{ login }}]"
+          hx-target="#content"
+          hx-push-url="/login/"
+          hx-indicator="#loader"
+          >Login</a
+        >
+      </li>
+      <li>
+        <a
+          hx-get="/api/sign-in/"
+          hx-trigger="click, load[{{ sign_in }}]"
+          hx-target="#content"
+          hx-push-url="/sign-in/"
+          hx-indicator="#loader"
+          >Sign In</a
+        >
+      </li>
+      <li>
+        <a
+          hx-get="/api/adoption-center/"
+          hx-trigger="click, load[{{ adoption_center }}]"
+          hx-target="#content"
+          hx-push-url="/adoption-centers/"
+          hx-indicator="#loader"
+          >Adoption Center</a
+        >
+      </li>
+      <li>
+        <a
+          hx-get="/api/pet-store/"
+          hx-trigger="click,load[{{ pet_store }}]"
+          hx-target="#content"
+          hx-push-url="/pet-stores/"
+          hx-indicator="#loader"
+          >Pet Store</a
+        >
+      </li>
+      <li>
+        <a
+          hx-get="/api/user/"
+          hx-trigger="click,load[{{ user }}]"
+          hx-target="#content"
+          hx-push-url="/users/"
+          hx-indicator="#loader"
+          >Regular User</a
+        >
+      </li>
+    </ul>
+  </div>
+</nav>
 <div id="content"></div>
 <div id="loader" class="htmx-indicator">Loading...</div>
 {% endblock %}

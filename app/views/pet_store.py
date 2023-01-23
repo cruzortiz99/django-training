@@ -4,13 +4,15 @@ from app.views.base_view import BaseView
 
 
 class PagePetStoreView(BaseView):
-    @property
-    def view_route(self) -> str:
+    @staticmethod
+    def view_route() -> str:
         return "/pet-stores/"
 
-    @property
-    def template_name(self) -> str:
+    @staticmethod
+    def template_name() -> str:
         return "pages/pet-store.html"
 
     async def get(self, request: HttpRequest) -> HttpResponse:
-        return render(request, self.template_name, {"name": "Beatriz"})
+        return render(request,
+                      PagePetStoreView.template_name(),
+                      {"name": "Beatriz"})

@@ -4,13 +4,13 @@ from app.views.base_view import BaseView
 
 
 class PageSignInView(BaseView):
-    @property
-    def view_route(self) -> str:
+    @staticmethod
+    def view_route() -> str:
         return "/sign-in/"
 
-    @property
-    def template_name(self) -> str:
+    @staticmethod
+    def template_name() -> str:
         return "pages/sign-in.html"
 
     async def get(self, request: HttpRequest) -> HttpResponse:
-        return render(request, self.template_name)
+        return render(request, PageSignInView.template_name())

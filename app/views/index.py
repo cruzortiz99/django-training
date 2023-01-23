@@ -4,19 +4,19 @@ from app.views.base_view import BaseView
 
 
 class IndexView(BaseView):
-    @property
-    def view_route(self) -> str:
+    @staticmethod
+    def view_route() -> str:
         return "/"
 
-    @property
-    def template_name(self) -> str:
+    @staticmethod
+    def template_name() -> str:
         return "pages/home.html"
 
     async def get(self, request: HttpRequest) -> HttpResponse:
         route = request.get_full_path()
         return render(
             request,
-            self.template_name,
+            IndexView.template_name(),
             {
                 "login": "true" if "login" in route else "false",
                 "sign_in": "true" if "sign-in" in route else "false",
