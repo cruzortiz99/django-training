@@ -1,12 +1,47 @@
 :root {
-  --color-primary: #9c0082;
-  --color-primary-hover: #83006d;
-  --color-secondary: #eeff00;
-  --color-secondary-hover: #f5ff70;
+  --color-purple: #b01e68;
+  --color-purple-hover: #81154b;
+  --color-yellow: #ffe15d;
+  --color-yellow-hover: #ffec98;
+  --color-red: #fa7b16;
+  --color-red-hover: #ff3d0d;
+  --color-green: #65fa32;
+  --color-green-hover: #2fbb00;
+  --color-blue: #3ee2fa;
+  --color-blue-hover: #00b5d1;
+  --color-primary: var(--color-purple);
+  --color-primary-hover: var(--color-purple-hover);
+  --color-secondary: var(--color-yellow);
+  --color-secondary-hover: var(--color-yellow-hover);
 }
 
 ._navbar {
   background-color: #ffffff99;
+}
+.is-60vh {
+  height: 60vh;
+}
+.image.placeholder {
+  border: 2px solid var(--color-primary);
+  position: relative;
+}
+.image.placeholder:before {
+  content: "";
+  position: absolute;
+  height: 100%;
+  width: 2px;
+  border: var(--color-primary) 1px dashed;
+  transform: rotate(45deg);
+  left: 50%;
+}
+.image.placeholder:after {
+  content: "";
+  position: absolute;
+  height: 100%;
+  width: 2px;
+  border: var(--color-primary) 1px dashed;
+  transform: rotate(-45deg);
+  left: 50%;
 }
 
 .button.is-primary {
@@ -21,12 +56,10 @@
 .has-background-primary {
   background-image: linear-gradient(
     66deg,
-    var(--color-primary) 40%,
-    var(--color-secondary) 40%
+    var(--color-primary) 39.9%,
+    #ffffff 39.9% 40.1%,
+    var(--color-secondary) 40.1%
   );
-}
-.is-60vh {
-  height: 60vh;
 }
 
 .animation.fade-in {
